@@ -1,5 +1,13 @@
 from docxtpl import DocxTemplate
-doc = DocxTemplate("ex.docx")
+
 context = { 'boss' : "И.И.Петров"}
-doc.render(context)
-doc.save("ex-final.docx")
+
+
+def doc_render(context, shablon, final):
+    doc = DocxTemplate(shablon)
+    doc.render(context)
+    doc.save(final)
+
+doc_render(context,"ex.docx","ex-final.docx")
+
+
